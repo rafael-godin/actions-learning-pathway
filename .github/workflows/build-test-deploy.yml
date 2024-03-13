@@ -25,9 +25,9 @@ jobs:
           node-version: '18.x'
       - run: npm install
       - run: npm test
-    deploy:
-      needs: test
-
+  deploy:
+    needs: test
+    
     permissions:
       contents: write
       pages: write     
@@ -38,7 +38,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     runs-on: ubuntu-latest
-
     steps:
       - name: checkout repo
         uses: actions/checkout@v3
